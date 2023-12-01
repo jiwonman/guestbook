@@ -6,13 +6,13 @@ pipeline {
     agent any
     environment {
         strDockerTag = "${TODAY}_${BUILD_ID}"
-        strDockerImage ="yu3papa/cicd_guestbook:${strDockerTag}"
+        strDockerImage ="jwiee/cicd_guestbook:${strDockerTag}"
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url:'https://github.com/yu3papa/guestbook.git'
+                git branch: 'master', url:'https://github.com/jiwonman/guestbook.git'
             }
         }
         stage('Build') {
@@ -41,7 +41,7 @@ pipeline {
                         ./mvnw sonar:sonar \
                         -Dsonar.projectKey=guestbook \
                         -Dsonar.host.url=http://172.31.0.120:9000 \
-                        -Dsonar.login=21193ff67973f0efc068ac33ce547e3da8c671b7
+                        -Dsonar.login=af4acac9b84a681a0db0b5b1a4b7ca35c1703389
                     '''
                 }
                 */
